@@ -4,6 +4,11 @@ Backend for local businesses: inventory, sales, WhatsApp alerts, and demand fore
 
 Built with **FastAPI**, **PostgreSQL**, **Redis**, and **Docker**. Designed for small retailers, restaurants, salons, and service shops that currently run on spreadsheets or paper.
 
+## Live Demo
+
+- **Frontend:** [smartshop-jotivegmailcoms-projects.vercel.app](https://smartshop-jotivegmailcoms-projects.vercel.app)
+- **API Docs:** [smartshop-api-production-24de.up.railway.app/docs](https://smartshop-api-production-24de.up.railway.app/docs)
+
 ## Features
 
 - **Product management** — CRUD with categories, SKU tracking, soft delete
