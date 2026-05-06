@@ -1,6 +1,6 @@
 import uuid
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -33,13 +33,14 @@ async def create_sale(
     for item in payload.items:
         product = products.get(item.product_id)
         if not product:
-            raise HTTPException(
-                status_code=404, detail=f"Product {item.product_id} not found"
-            )
+            raise HTTPException(status_code=404, detail=f"Product {item.product_id} not found")
         if product.stock < item.quantity:
             raise HTTPException(
                 status_code=400,
-                detail=f"Not enough stock for {product.name}: {product.stock} available, {item.quantity} requested",
+                detail=(
+                    f"Not enough stock for {product.name}: "
+                    f"{product.stock} available, {item.quantity} requested"
+                ),
             )
 
         subtotal = product.price * item.quantity
