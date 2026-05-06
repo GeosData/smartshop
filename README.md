@@ -87,19 +87,16 @@ make migration msg="add orders table"
 make migrate       # Apply migrations
 ```
 
+## Architecture decisions
+
+The non-obvious calls are documented as ADRs under [`docs/adr/`](docs/adr/):
+
+- [ADR-001: Multi-tenancy via shared schema with `tenant_id`](docs/adr/0001-multi-tenancy-shared-schema-with-tenant-id.md) — why we accept the application-level isolation trade-off instead of database-per-tenant.
+- [ADR-002: JWT bearer tokens over session cookies](docs/adr/0002-jwt-auth-over-session-cookies.md) — why stateless tokens for v1, with the logout trade-off bounded by short access TTL.
+
 ## Roadmap
 
-- [x] Project scaffolding + Docker setup
-- [x] Product CRUD with pagination and filters
-- [x] Sales with multi-item transactions and stock validation
-- [ ] JWT authentication with owner/staff roles
-- [ ] Alembic initial migration
-- [ ] Integration tests with real database
-- [ ] WhatsApp alerts for low-stock (Twilio)
-- [ ] Weekly sales reports endpoint
-- [ ] Demand forecasting with Pandas
-- [ ] WebSocket real-time inventory dashboard
-- [ ] GitHub Actions CI pipeline
+Full plan, milestones, and revisit conditions in [`ROADMAP.md`](ROADMAP.md). Structured event log in [`TRACE.md`](TRACE.md).
 
 ---
 
